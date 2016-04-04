@@ -24,6 +24,8 @@ except ImportError:
 
 # Auto-detection of Unity and Dbusmenu in gi repository
 try:
+    from gi.repository import require_version
+    require_version('Unity', '7.0')
     from gi.repository import Unity, Dbusmenu
 except ImportError:
     Unity = None
