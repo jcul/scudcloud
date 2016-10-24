@@ -19,10 +19,14 @@ class Speller(QObject):
     initialized = False
     startPos = 0
 
-    def __init__(self):
+    def __init__(self, lang=None):
         super(Speller, self).__init__()
         if self.initialized or hunspell.HunSpell is None:
             return
+        if lang:
+            self.lang = lang
+        else:
+            self.lang = QLocale.system().name()
         dictionaryPath = self.getDictionaryPath()
         language = self.parseLanguage(dictionaryPath)
         if not dictionaryPath or language is None:
@@ -46,7 +50,7 @@ class Speller(QObject):
         return QFile(path + ".dic").exists() and QFile(path + ".aff").exists();
 
     def getDictionaryPath(self):
-        dicPath = Resources.SPELL_DICT_PATH + QLocale.system().name()
+        dicPath = Resources.SPELL_DICT_PATH + self.lang
         if self.dictionaryExists(dicPath):
             return dicPath
         return ''

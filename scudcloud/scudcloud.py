@@ -34,7 +34,6 @@ class ScudCloud(QtGui.QMainWindow):
 
     forceClose = False
     messages = 0
-    speller = Speller()
     title = 'ScudCloud'
 
     def __init__(self, debug = False, parent = None, minimized = None, urgent_hint = None, settings_path = ""):
@@ -48,6 +47,7 @@ class ScudCloud(QtGui.QMainWindow):
         self.settings = QSettings(self.settings_path + '/scudcloud.cfg', QSettings.IniFormat)
         self.notifier.enabled = self.settings.value('Notifications', defaultValue=True, type=bool)
         self.identifier = self.settings.value("Domain")
+        self.speller = Speller(self.settings.value("Hunspell"))
         if Unity is not None:
             self.launcher = Unity.LauncherEntry.get_for_desktop_id("scudcloud.desktop")
         else:
