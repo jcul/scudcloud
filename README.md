@@ -136,6 +136,17 @@ Make sure you have the following packages installed:
 * `python3-hunspell`
 * `hunspell-en-us`
 
+Hunspell uses your system locale to determine the correct language to use.
+
+You can overwrite this by setting variable Hunspell in the config file:
+
+    ~/.config/scudcloud/scudcloud.cfg
+
+e.g.
+    Hunspell=en_US
+
+This can be useful if there isn't a hunspell package available for your locale.
+
 #### 4. `Keep me signed in` is not working / My team is not saved
 
 For some reason, ScudCloud was not able to create the configuration folder. Please, manually create this folder:
