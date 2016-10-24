@@ -37,7 +37,7 @@ sudo apt-get install scudcloud
 
 If you want **spell checking**, add the `hunspell` dictionary for your language and make sure dependencies are installed. For `en-us`:
 
-    sudo apt-get install hunspell-en-us python3-hunspell
+    sudo apt-get install hunspell-en-us libqtwebkit-qupzillaplugins python3-hunspell
 
 If you want to use a Slack icon instead of ScudCloud (which is not possible to include in this package due to copyright), download [any 128px Slack icon](https://www.google.com.br/search?q=slack+icon&tbm=isch&source=lnt&tbs=isz:ex,iszw:128,iszh:128) to your home folder saving as `scudcloud.png` and run:
 
@@ -132,6 +132,7 @@ If not listed above, you're welcome [to contribute](/CONTRIBUTING.md). In this m
 
 Make sure you have the following packages installed:
 
+* `libqtwebkit-qupzillaplugins`
 * `python3-hunspell`
 * `hunspell-en-us`
 
